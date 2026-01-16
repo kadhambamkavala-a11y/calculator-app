@@ -13,10 +13,11 @@
       font-family: Arial, sans-serif;
     }
     .calculator {
-      background: #000;
+      background: #111;
       padding: 20px;
       border-radius: 15px;
       width: 260px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
     }
     input {
       width: 100%;
@@ -25,6 +26,8 @@
       text-align: right;
       margin-bottom: 10px;
       padding-right: 10px;
+      border-radius: 8px;
+      border: none;
     }
     button {
       width: 55px;
@@ -33,7 +36,11 @@
       font-size: 18px;
       border-radius: 50%;
       cursor: pointer;
+      border: none;
     }
+    .num { background: #333; color: #fff; }
+    .op { background: orange; color: #fff; }
+    .clear { background: red; color: #fff; }
   </style>
 </head>
 <body>
@@ -41,29 +48,34 @@
 <div class="calculator">
   <input type="text" id="display" disabled>
 
-  <button onclick="clearDisplay()">C</button>
-  <button onclick="backspace()">⌫</button>
-  <button onclick="add('%')">%</button>
-  <button onclick="add('/')">÷</button><br>
+  <!-- First Row -->
+  <button class="clear" onclick="clearDisplay()">C</button>
+  <button class="op" onclick="backspace()">⌫</button>
+  <button class="op" onclick="add('%')">%</button>
+  <button class="op" onclick="add('/')">÷</button><br>
 
-  <button onclick="add('7')">7</button>
-  <button onclick="add('8')">8</button>
-  <button onclick="add('9')">9</button>
-  <button onclick="add('*')">×</button><br>
+  <!-- Second Row -->
+  <button class="num" onclick="add('7')">7</button>
+  <button class="num" onclick="add('8')">8</button>
+  <button class="num" onclick="add('9')">9</button>
+  <button class="op" onclick="add('*')">×</button><br>
 
-  <button onclick="add('4')">4</button>
-  <button onclick="add('5')">5</button>
-  <button onclick="add('6')">6</button>
-  <button onclick="add('-')">−</button><br>
+  <!-- Third Row -->
+  <button class="num" onclick="add('4')">4</button>
+  <button class="num" onclick="add('5')">5</button>
+  <button class="num" onclick="add('6')">6</button>
+  <button class="op" onclick="add('-')">−</button><br>
 
-  <button onclick="add('1')">1</button>
-  <button onclick="add('2')">2</button>
-  <button onclick="add('3')">3</button>
-  <button onclick="add('+')">+</button><br>
+  <!-- Fourth Row -->
+  <button class="num" onclick="add('1')">1</button>
+  <button class="num" onclick="add('2')">2</button>
+  <button class="num" onclick="add('3')">3</button>
+  <button class="op" onclick="add('+')">+</button><br>
 
-  <button onclick="add('0')">0</button>
-  <button onclick="add('.')">.</button>
-  <button onclick="calculate()">=</button>
+  <!-- Fifth Row -->
+  <button class="num" onclick="add('0')">0</button>
+  <button class="num" onclick="add('.')">.</button>
+  <button class="op" onclick="calculate()">=</button>
 </div>
 
 <script>
